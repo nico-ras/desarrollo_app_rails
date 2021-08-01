@@ -1,0 +1,8 @@
+<!-- app/views/calculator/add.html.erb -->
+<%= form_tag(add_path, method: "post") do %>
+  <%= label_tag(:first, "Primer número") %>
+  <%= text_field_tag(:first) %>
+  <%= label_tag(:last, "Segundo número") %>
+  <%= text_field_tag(:last) %>
+  <%= submit_tag("Sumar") %>
+<% end %>

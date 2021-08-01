@@ -1,0 +1,27 @@
+<%= form_with(model: jam) do |form| %>
+  <% if jam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jam.errors.count, "error") %> prohibited this jam from being saved:</h2>
+
+      <ul>
+        <% jam.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <!--<div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div> borramos porque ya viene encriptado en las cookies, id se encuentra disponible usando el comando current_user(user dado por el modelo creado con el devise) --> 
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

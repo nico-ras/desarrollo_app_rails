@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Concerts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Band</th>
+      <th>Attendace</th>
+      <th>Duration</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @concerts.each do |concert| %>
+      <tr>
+        <td><%= concert.band_id %></td>
+        <td><%= concert.attendace %></td>
+        <td><%= concert.duration %></td>
+        <td><%= concert.date %></td>
+        <td><%= link_to 'Show', band_concert_path(@band,concert) %></td>
+        <td><%= link_to 'Edit', edit_band_concert_path(@band, concert) %></td>
+        <td><%= link_to 'Destroy', band_concert(@band, concert), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Concert', new_band_concert_path %>
+
+<!--en linea 23 y 25 (menos edit), podemos pasar los dos parametros dentro de un array y rails sabra donde ir    [@band, concerts]-->
